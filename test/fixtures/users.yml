@@ -1,0 +1,12 @@
+DEFAULTS: &DEFAULTS
+  name: $LABEL
+  email: $LABEL@mail.ru
+
+mike:
+  <<: *DEFAULTS
+
+vadim:
+  <<: *DEFAULTS
+
+ivan:
+  <<: *DEFAULTS
