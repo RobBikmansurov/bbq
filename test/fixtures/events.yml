@@ -1,0 +1,13 @@
+event1:
+  title: Swimming pool
+  description: Пенная вечеринка
+  address: Moscow river
+  datetime: <%= 5.day.after.to_s(:db) %>
+  user: vadim
+
+event2:
+  title: Megaparty
+  description: girls and boys invited
+  address: Moscow, Gorky Park
+  datetime: <%= 10.day.after.to_s(:db) %>
+  user: mike
