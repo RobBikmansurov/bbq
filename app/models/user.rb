@@ -1,9 +1,17 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
   has_many :events
 
   validates :name, presence: true, length: { maximum: 35 }
-  validates :email, presence: true, length: { maximum: 255 }
-  validates :email, uniqueness: true
-  ## validates :email, format: /\A[a-zA-Z0-9\-_.]+@[a-zA-Z0-9\-_.]+\z/
-  validates :email, format: { with: /\A[\w\d._-]+@[\d\w.]+\.\w+\z/ }
+
+  before_validation :rand_name, on: :create
+
+  private
+
+  def rand_name
+    self.name = "Товарисч #{rand(1000)}"
+  end
 end
