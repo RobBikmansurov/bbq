@@ -11,12 +11,9 @@ gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 gem 'twitter-bootstrap-rails'
-gem 'jquery-rails'
 
 gem 'devise'
-
-# Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.2', require: false
+gem 'devise-i18n'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.4'
@@ -24,8 +21,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'listen'
   gem 'web-console', '>= 3.3.0'
-  gem 'listen', '~> 3.2'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
