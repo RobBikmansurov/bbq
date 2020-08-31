@@ -17,6 +17,9 @@ Style/Documentation:
     - 'spec/**/*'
     - 'test/**/*'
     - 'db/migrate/*'
+Layout/LineLength:
+  Exclude:
+    - 'config/initializers/devise.rb'
 
 Style/FrozenStringLiteralComment:
   Enabled: false
