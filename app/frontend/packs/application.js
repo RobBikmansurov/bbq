@@ -5,7 +5,7 @@
 
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
-require("bootstrap/dist/js/bootstrap");
+require("bootstrap/dist/js/bootstrap")
 
 var jQuery = require("jquery");
 // import jQuery from "jquery";
