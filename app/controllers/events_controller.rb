@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
+    before_action :authenticate_user!, except: [:show, :index]
   before_action :load_event, only: %i[show edit update destroy]
+      before_action :set_current_user_event, only: [:edit, :update, :destroy]
 
   def index
     @events = Event.all
@@ -8,13 +10,13 @@ class EventsController < ApplicationController
   def show; end
 
   def new
-    @event = Event.new
+    @event = current_user.events.build
   end
 
   def edit; end
 
   def create
-    @event = Event.new(event_params)
+    @event = current_user.events.build(event_params)
 
     if @event.save
       redirect_to @event, notice: 'Event was successfully created.'
@@ -38,12 +40,16 @@ class EventsController < ApplicationController
 
   private
 
+  def set_current_user_event
+    @event = current_user.events.find(params[:id])
+  end
+
   def load_event
     @event = Event.find(params[:id])
   end
 
   def event_params
     # params.fetch(:event, {})
-    params.require(:event).permit(:title, :address, :datetime, :description)
+    params.require(:event).permit(:title, :address, :datetime, :description, :user)
   end
 end
