@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :events
   resources :users, only: %i[show edit update]
 
-  root 'events#index'
+  root to: 'events#index'
 
-  devise_for :users
 end
