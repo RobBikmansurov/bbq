@@ -1,0 +1,31 @@
+ru:
+  hello: "Привет мир"
+  activerecord:
+    models:
+      user: Пользователь
+      event: Событие
+      users: Пользователи
+      events: События
+
+    attributes:
+      event:
+        title: Название
+        address: Место
+        description: Описание
+        datetime: Дата и время
+      user:
+        name: Имя
+        email: Email
+
+  action:
+    show: Показать
+    back: Назад
+    edit: Изменить
+
+  app:
+    name: 'Шашлыки'
+    company: 'Хороший программист'
+
+
+
+
