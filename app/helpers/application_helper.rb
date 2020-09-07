@@ -3,3 +3,4 @@ module ApplicationHelper
     'user.png'
   end
 end
+

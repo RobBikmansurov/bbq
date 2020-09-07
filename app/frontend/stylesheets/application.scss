@@ -1,5 +1,12 @@
-// app/javascript/stylesheets/application.scss
+@import './bootstrap_custom.scss';
 
-@import 'bootstrap/scss/bootstrap';
-@import "events.css";
-@import "bbq.css";
+@import "./bbq.css";
+@import "./events.css";
+
+
+//### 1. Add the entire bootstrap framework javascript and css
+//@import 'bootstrap/scss/bootstrap';
+
+//OR
+//### 2. Hand-pick the resources we are going to use in our app
+//@import './bootstrap_custom.scss';

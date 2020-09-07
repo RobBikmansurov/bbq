@@ -15,12 +15,14 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
-log/*
+!/log/.keep
+!/tmp/.keep
 
-# Ignore uploaded files in development.
-/storage/*
-!/storage/.keep
-storage/*
+# Ignore pidfiles, but keep the directory.
+/tmp/pids/*
+!/tmp/pids/
+!/tmp/pids/.keep
+
 
 /public/assets
 .byebug_history
@@ -34,7 +36,5 @@ storage/*
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
-
-vendor/**/*
 
 .idea
