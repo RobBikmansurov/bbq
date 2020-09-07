@@ -10,7 +10,6 @@ var jQuery = require("jquery");
 global.$ = global.jQuery = jQuery;
 window.$ = window.jQuery = jQuery;
 
-
 import "bootstrap"
 
 import '../stylesheets/application'
@@ -21,4 +20,4 @@ import '../stylesheets/application'
 //
 
 const images = require.context('../images', true)
-// const imagePath = (name) => images(name, true)
+const imagePath = (name) => images(name, true)
