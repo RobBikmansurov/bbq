@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def user_avatar(user)
+  def user_avatar(_user)
     'user.png'
   end
 end
