@@ -26,6 +26,12 @@ ru:
     name: 'Шашлыки'
     company: 'Хороший программист'
 
-
+  validate_errors:
+    error:
+      zero: 'нет ошибок'
+      one: '%{count} ошибка'
+      few: '%{count} ошибки'
+      many: '%{count} ошибок'
+      other: 'ошибки'
 
 
