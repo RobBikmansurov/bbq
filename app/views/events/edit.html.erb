@@ -1,6 +1,3 @@
 <h1>Изменить событие</h1>
 
-<%= render 'form' %>
-
-<%= link_to t('action.show'), @event %> |
-<%= link_to t('action.back'), events_path %>
+<%= render partial: 'form', locals: { event: @event } %>
