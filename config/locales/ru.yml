@@ -20,7 +20,8 @@ ru:
   action:
     show: Показать
     back: Назад
-    edit: Изменить
+    update: Изменить
+    destroy: Удалить
 
   app:
     name: 'Шашлыки'
@@ -34,4 +35,5 @@ ru:
       many: '%{count} ошибок'
       other: 'ошибки'
 
+  are_you_sure: 'Вы действительно хотите удалить?'
 
