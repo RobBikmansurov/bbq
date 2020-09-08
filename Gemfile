@@ -10,7 +10,6 @@ gem 'webpacker', '~> 4.0'
 gem 'devise'
 gem 'devise-i18n'
 gem 'rails-i18n', '~> 6.0.0'
-gem 'russian', '~> 0.6.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
