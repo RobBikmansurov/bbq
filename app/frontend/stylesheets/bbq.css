@@ -44,3 +44,11 @@
 .thumbnail-inner {
   padding: 20px 4px 4px;
 }
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
+.alert-notice {
+  @extend .alert-success;
+}
