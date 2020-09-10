@@ -24,6 +24,9 @@ ru:
     destroy: Удалить
     edit_profile: Редактировать профиль
     change_password: Сменить пароль
+    sign_in: Войти
+    sign_out: Выйти
+    sign_up: Зарегистрироваться
 
   app:
     name: 'Шашлыки'
