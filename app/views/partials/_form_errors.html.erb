@@ -2,10 +2,12 @@
 
 <% if errors.any? %>
   <div class="alert alert-danger">
-    <div class="lead buffer-bottom">
-      В вашей форме <%= errors.count %> ошибок
-    </div>
-
+    <span>
+        <%= I18n.t("errors.messages.not_saved",
+                 count: errors.count,
+                 resource: model.class.model_name.human)
+      %>
+    </span>
     <ul>
       <% errors.full_messages.each do |message| %>
         <li><%= message %></li>
