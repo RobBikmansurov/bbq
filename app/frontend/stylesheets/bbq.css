@@ -52,3 +52,10 @@
 .alert-notice {
   @extend .alert-success;
 }
+
+label {
+  font-weight: bold;
+}
+label:after {
+  content: ':';
+}
