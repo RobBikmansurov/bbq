@@ -1,9 +1,9 @@
 <div class="row">
-  <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+  <div class="col-lg-6 col-md-6 ml-auto mr-auto">
     <h2><%= t('.sign_up', default: "Sign up") %></h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-       <%= render partial: 'devise/shared/error_messages', resource: resource %>
+      <% render partial: 'devise/shared/error_messages', resource: resource %>
 
       <div class="form-group">
         <%= f.label :email %>

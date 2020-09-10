@@ -1,11 +1,11 @@
-<h1>Редактирование профиля</h1>
-
 <div class="row">
-  <div class="col-md-6 buffer-top">
-    <%= render partial: 'form', locals: { user: @user } %>
+  <div class="col-lg-6 col-md-6 ml-auto mr-auto">
+    <h2><%= t("action.edit_profile") %></h2>
 
-    <p class="buffer-top">
-      <%= link_to 'Сменить пароль', edit_user_registration_path %>
-    </p>
+    <%= render partial: 'form', locals: {user: @user} %>
+
+    <div>
+      <%= link_to t("action.change_password"), edit_user_registration_path %>
+    </div>
   </div>
 </div>

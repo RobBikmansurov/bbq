@@ -22,6 +22,8 @@ ru:
     back: Назад
     update: Изменить
     destroy: Удалить
+    edit_profile: Редактировать профиль
+    change_password: Сменить пароль
 
   app:
     name: 'Шашлыки'
