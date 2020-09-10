@@ -10,3 +10,8 @@ vadim:
 
 ivan:
   <<: *DEFAULTS
+
+rob:
+  <<: *DEFAULTS
+  # confirmed_at: <%= Time.zone.now %>
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
