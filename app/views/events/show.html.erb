@@ -45,15 +45,17 @@
         <h4>Зовет:</h4>
         <p><%= render partial: 'users/user', object: @event.user %></p>
       </div>
-      <div class="event-subscriptions">
-        <h4>Пойдут:</h4>
-        <div>
-          <p>
-            <%= render partial: 'subscriptions/subscription',
-                       collection: @event.subscriptions.except(@subscription) %>
-          </p>
+      <% if @event.subscriptions.except(@subscription).any? %>
+        <div class="event-subscriptions">
+          <h4>Пойдут:</h4>
+          <div>
+            <p>
+              <%= render partial: 'subscriptions/subscription',
+                         collection: @event.subscriptions.except(@subscription) %>
+            </p>
+          </div>
         </div>
-      </div>
+      <% end %>
       <% if current_user_can_create?(@subscription) &&
           !current_user_already_subscribed?(@subscription) %>
         <div class="event-subscription-form">
