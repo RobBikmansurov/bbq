@@ -54,7 +54,8 @@
           </p>
         </div>
       </div>
-      <% if current_user_can_create?(@subscription) %>
+      <% if current_user_can_create?(@subscription) &&
+          !current_user_already_subscribed?(@subscription) %>
         <div class="event-subscription-form">
           <h4>Я пойду:</h4>
           <div>
