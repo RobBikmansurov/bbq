@@ -42,3 +42,12 @@ ru:
 
   are_you_sure: 'Вы действительно хотите удалить?'
 
+  controllers:
+    comments:
+      destroyed: 'Комментарий удален'
+      created: 'Ваш комментарий добавлен'
+      error: 'Ошибка с комментарием'
+
+  comments:
+    comment:
+      destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'

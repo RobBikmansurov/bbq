@@ -18,7 +18,7 @@
               <div class="buffer-both">
                 <%= link_to t('action.update'), edit_event_path(@event), class: 'btn btn-primary' %>
                 <%= link_to t('action.destroy'), @event, method: :delete,
-                            data: { confirm: t('are_you_sure') }, class: 'btn btn-danger' %>
+                            data: {confirm: t('are_you_sure')}, class: 'btn btn-danger' %>
               </div>
             <% end %>
           </div>
@@ -26,5 +26,17 @@
       </div>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="event-comments buffer-top">
+        <div class="buffer-both">
+          <%= render partial: 'comments/comment',
+                     collection: @event.comments %>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
