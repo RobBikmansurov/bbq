@@ -31,11 +31,11 @@
     <div class="col-md-8">
       <div class="event-comments buffer-top">
         <%= render partial: 'comments/form',
-          locals: {comment: @new_comment || @event.comments.build} %>
+                   locals: {comment: @comment || @event.comments.build} %>
 
         <div class="buffer-both">
           <%= render partial: 'comments/comment',
-            collection: @event.comments.except(@new_comment) %>
+                     collection: @event.comments.except(@comment) %>
         </div>
       </div>
     </div>
@@ -50,18 +50,20 @@
         <div>
           <p>
             <%= render partial: 'subscriptions/subscription',
-                       collection: @event.subscriptions.except(@new_subscription) %>
+                       collection: @event.subscriptions.except(@subscription) %>
           </p>
         </div>
       </div>
-      <div class="event-subscription-form">
-        <h4>Я пойду:</h4>
-        <div>
-          <%= render partial: 'subscriptions/form', locals: {
-              subscription: @new_subscription || @event.subscriptions.build
-          } %>
+      <% if current_user_can_create?(@subscription) %>
+        <div class="event-subscription-form">
+          <h4>Я пойду:</h4>
+          <div>
+            <%= render partial: 'subscriptions/form', locals: {
+                subscription: @subscription || @event.subscriptions.build
+            } %>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 
