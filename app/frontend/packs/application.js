@@ -17,3 +17,6 @@ import './bootstrap_custom'
 
 import '../stylesheets/application'
 
+import "@fortawesome/fontawesome-free/js/all";
+
+
