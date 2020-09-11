@@ -6,6 +6,8 @@ ru:
       event: Событие
       users: Пользователи
       events: События
+      comment: Комментарий
+      comments: Комментарии
 
     attributes:
       event:
@@ -16,6 +18,9 @@ ru:
       user:
         name: Имя
         email: Email
+      comment:
+        body: Комментарий
+        user_name: Пользователь
 
   action:
     show: Показать
@@ -47,7 +52,14 @@ ru:
       destroyed: 'Комментарий удален'
       created: 'Ваш комментарий добавлен'
       error: 'Ошибка с комментарием'
+    subscriptions:
+      created: 'Вы подписаны на это событие'
+      destroyed: 'Участник отписан'
+      error: 'Подписка/отписка не сработала'
 
   comments:
     comment:
       destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
+  subscriptions:
+    subscription:
+      destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
