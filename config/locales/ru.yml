@@ -46,6 +46,7 @@ ru:
       other: 'ошибки'
 
   are_you_sure: 'Вы действительно хотите удалить?'
+  belongs_to_another_registered_user: 'принадлежит зарегистрированному пользователю'
 
   controllers:
     comments:

@@ -32,6 +32,6 @@ class Subscription < ApplicationRecord
   end
 
   def email_alredy_registered
-    errors.add(:user_email, 'belongs to another registered user') if User.where(email: user_email).any?
+    errors.add(:user_email, I18n.t('belongs_to_another_registered_user')) if User.exists?(email: user_email)
   end
 end
