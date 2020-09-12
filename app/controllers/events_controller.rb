@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: %i[show index]
-  before_action :load_event, only: %i[show edit update destroy]
+  before_action :load_event, only: :show
   before_action :set_current_user_event, only: %i[edit update destroy]
 
   def index
