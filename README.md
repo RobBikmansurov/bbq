@@ -1,24 +1,25 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# BBQ - training project
 
-Things you may want to cover:
+## Getting started
 
-* Ruby version
+Try the app on [Heroku](https://bbq-robb.herokuapp.com/)
 
-* System dependencies
+### Install
 
-* Configuration
+Development environment requirements :
+* Ruby version 2.7.1
+* Rails 6.0.3
+* gem Devise
 
-* Database creation
+```bash
+$ git clone git@github.com:RobBikmansurov/bbq.git
+$ cd bbq
+$ rails db:setup
+$ rails db:seed
+```
 
-* Database initialization
+Now you can access the application with your browser on: http://localhost:3000
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+&copy; 2020 [Robert Bikmansurov](https://bikmansurov.ru/)
