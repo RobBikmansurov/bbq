@@ -8,6 +8,8 @@ ru:
       events: События
       comment: Комментарий
       comments: Комментарии
+      photo: Фотография
+      photos: Фотографии
 
     attributes:
       event:
@@ -22,6 +24,8 @@ ru:
       comment:
         body: Комментарий
         user_name: Пользователь
+      photo:
+        photo: Фотография
 
   action:
     show: Показать
@@ -58,6 +62,10 @@ ru:
       created: 'Вы подписаны на это событие'
       destroyed: 'Участник отписан'
       error: 'Подписка/отписка не сработала'
+    photos:
+      error: 'Что-то не так с фоткой'
+      created: 'Вы добавили фотографию к событию'
+      destroyed: 'Вы удалили фотку'
 
   comments:
     comment:
