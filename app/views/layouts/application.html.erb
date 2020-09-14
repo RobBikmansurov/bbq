@@ -30,6 +30,7 @@
       <div class="collapse navbar-collapse align-items-center" id="navbarResponsive">
         <ul class="navbar-nav ml-auto align-items-center">
           <% if user_signed_in? %>
+            <span class="user-avatar"><%= image_tag(user_avatar(current_user), class: 'img-icon', title: "#{current_user.name}") %></span>
             <li class="nav-item"><%= link_to current_user.name, current_user, class: "nav-link" %></li>
             <li class="nav-item"><%= link_to t('action.sign_out', default: "Sign out"), destroy_user_session_path, method: :delete, class: "nav-link" %></li>
           <% else %>
