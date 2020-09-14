@@ -8,9 +8,9 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :subscriptions
 
-  validates :name, presence: true, length: {maximum: 35}
+  mount_uploader :avatar, AvatarUploader
 
-   mount_uploader :avatar, AvatarUploader
+  validates :name, presence: true, length: {maximum: 35}
 
   private
 
