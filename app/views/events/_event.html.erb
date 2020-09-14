@@ -2,7 +2,8 @@
 <div class="col-sm-6 col-md-4">
   <div class="thumbnail">
 
-    <%= content_tag :div, '', class: 'event-background' %>
+    <%= content_tag 'div', '', class: 'event-background',
+        style: "background-image: url(#{event_photo(event)})" %>
 
     <div class="thumbnail-inner event-info-inner">
       <div class="caption">
@@ -14,4 +15,9 @@
       </div>
     </div>
   </div>
+  <div>
+  <% event.visitors.each do |user| %>
+    <%= image_tag user_avatar_thumb(user), class: 'img-icon', title: user.name %>
+  <% end %>
+</div>
 </div>

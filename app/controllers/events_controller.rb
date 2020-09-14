@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: %i[show index]
   before_action :load_event, only: :show
-  before_action :set_current_user_event, only: %i[edit update destroy]
+  before_action :load_current_user_event, only: %i[edit update destroy]
 
   def index
     @events = Event.all
@@ -10,6 +10,7 @@ class EventsController < ApplicationController
   def show
     @comment = @event.comments.build(params[:comment])
     @subscription = @event.subscriptions.build(params[:subscription])
+    @photo = @event.photos.build(params[:photo])
   end
 
   def new
@@ -43,7 +44,7 @@ class EventsController < ApplicationController
 
   private
 
-  def set_current_user_event
+  def load_current_user_event
     @event = current_user.events.find(params[:id])
   end
 
