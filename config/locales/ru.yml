@@ -18,6 +18,7 @@ ru:
       user:
         name: Имя
         email: Email
+        avatar: Аватар
       comment:
         body: Комментарий
         user_name: Пользователь
