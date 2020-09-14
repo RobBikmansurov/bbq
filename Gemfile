@@ -11,6 +11,9 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'rails-i18n', '~> 6.0.0'
 
+gem 'carrierwave', '~> 2.0'
+gem 'rmagick'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'sqlite3', '~> 1.4'
