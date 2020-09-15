@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
-  validates :name, presence: true, length: {maximum: 35}
+  validates :name, presence: true, length: { maximum: 35 }
 
   private
 
@@ -21,6 +21,6 @@ class User < ApplicationRecord
   # обновить подписки, если юзер сначала подписался, а потом зарегистрировался
   def link_subscriptions
     Subscription.where(user_id: nil, user_email: email)
-    .update_all(user_id: id)
+                .update_all(user_id: id)
   end
 end
