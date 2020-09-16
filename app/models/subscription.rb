@@ -14,6 +14,7 @@ class Subscription < ApplicationRecord
   validates :user_email, uniqueness: { scope: :event_id }, unless: -> { user.present? }
   # аноним не может подписать уже зарегистрованного пользователя
   validate :email_alredy_registered, unless: -> { user.present? }
+  validate :author_cannot_subscribe, on: :create
 
   def user_name
     if user.present?
@@ -29,6 +30,10 @@ class Subscription < ApplicationRecord
     else
       super
     end
+  end
+
+  def author_cannot_subscribe
+    errors.add(:event, I18n.t('author_cannot_subscribe'))
   end
 
   def email_alredy_registered
