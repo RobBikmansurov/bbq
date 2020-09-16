@@ -47,12 +47,14 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
 
+  config.action_mailer.delivery_method = :smtp
+
   config.action_mailer.smtp_settings = {
-    address:   'smtp.gmail.com',
+    address:   Rails.application.credentials.send(Rails.env)[:mail][:hostname],
     port:      '587',
-    user_name: Rails.application.credentials.send(Rails.env)[:mail][:user_name],
+    user_name: Rails.application.credentials.send(Rails.env)[:mail][:username],
     password:  Rails.application.credentials.send(Rails.env)[:mail][:password],
-    authentication: 'plain',
+    domain: 'heroku.com',
     enable_starttls_auto: true
   }
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
