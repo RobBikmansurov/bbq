@@ -3,7 +3,7 @@
     <div class="col-md-12">
 
       <%= content_tag 'div', '', class: 'event-background',
-        style: "background-image: url(#{event_photo(@event)})" %>
+                      style: "background-image: url(#{event_photo(@event)})" %>
 
       <div class="event-info-inner row">
         <div class="col-md-6">
@@ -32,11 +32,11 @@
 
   <div class="row">
     <div class="col-md-8">
-       <div class="event-photos">
+      <div class="event-photos">
         <div class="event-photos-gallery">
           <%= render partial: 'photos/photo', collection: @event.photos.persisted.except(@photo) %>
         </div>
-       </div>
+      </div>
 
       <div class="event-photo-form">
         <%= render partial: 'photos/form', locals: {photo: @photo || @event.photos.build} %>
@@ -46,7 +46,7 @@
         <%= render partial: 'comments/form',
                    locals: {comment: @comment || @event.comments.build} %>
 
-        <div class="buffer-both">
+        <div class="buffer-top">
           <%= render partial: 'comments/comment',
                      collection: @event.comments.except(@comment) %>
         </div>
