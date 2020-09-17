@@ -17,6 +17,7 @@ ru:
         address: Место
         description: Описание
         datetime: Дата и время
+        pincode: Код доступа
       user:
         name: Имя
         email: Email
@@ -32,6 +33,7 @@ ru:
     back: Назад
     update: Изменить
     destroy: Удалить
+    save: Ввести
     edit_profile: Редактировать профиль
     change_password: Сменить пароль
     sign_in: Войти
@@ -53,6 +55,7 @@ ru:
   are_you_sure: 'Вы действительно хотите удалить?'
   belongs_to_another_registered_user: 'принадлежит зарегистрированному пользователю'
   author_cannot_subscribe: 'автор не может подписаться на свои события'
+  access_only_by_pincode: Доступ только по пин-коду
 
   controllers:
     comments:
@@ -67,6 +70,8 @@ ru:
       error: 'Что-то не так с фоткой'
       created: 'Вы добавили фотографию к событию'
       destroyed: 'Вы удалили фотку'
+    events:
+      wrong_pincode: 'Неверный пин-код!'
 
   comments:
     comment:
@@ -90,3 +95,4 @@ ru:
       event: 'Событие'
       datetime: 'Состоится'
       owner: 'Организатор'
+  .pincode: Код доступа

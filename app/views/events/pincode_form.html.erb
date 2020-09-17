@@ -1,0 +1,16 @@
+<div class="col-md-6 buffer-top">
+  <h1><%= t('access_only_by_pincode') %></h1>
+
+  <%= form_tag(@event, method: 'post') do |f| %>
+    <div class="form-group">
+      <%= label_tag :pincode, t('activerecord.attributes.event.pincode') %>
+      <%= text_field_tag :pincode, params[:pincode], autocomplete: 'off', class: 'form-control' %>
+    </div>
+
+    <div class="actions">
+      <%= submit_tag t('action.save') %>
+    </div>
+  <% end %>
+
+  <%= link_to 'На главную', events_path %>
+</div>
