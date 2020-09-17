@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, except: %i[show index]
   before_action :load_event, only: :show
   before_action :load_current_user_event, only: %i[edit update destroy]
+  before_action :pincode_guard!, only: [:show]
 
   def index
     @events = Event.all
@@ -54,6 +55,21 @@ class EventsController < ApplicationController
 
   def event_params
     # params.fetch(:event, {})
-    params.require(:event).permit(:title, :address, :datetime, :description, :user)
+    params.require(:event).permit(:title, :address, :datetime, :description, :user, :pincode)
+  end
+
+  def pincode_guard!
+    return true if @event.pincode.blank?
+    return true if signed_in? && current_user == @event.user
+
+    if params[:pincode].present? && @event.pincode_valid?(params[:pincode])
+      cookies.permanent["events_#{@event.id}_pincode"] = params[:pincode]
+    end
+
+    pincode = cookies.permanent["events_#{@event.id}_pincode"]
+    return if @event.pincode_valid?(pincode)
+
+    flash.now[:alert] = I18n.t('controllers.events.wrong_pincode') if params[:pincode].present?
+    render 'pincode_form'
   end
 end
