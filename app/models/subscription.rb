@@ -32,8 +32,10 @@ class Subscription < ApplicationRecord
     end
   end
 
+  private
+
   def author_cannot_subscribe
-    errors.add(:event, I18n.t('author_cannot_subscribe'))
+    errors.add(:event, I18n.t('author_cannot_subscribe')) if event.user == user
   end
 
   def email_alredy_registered
