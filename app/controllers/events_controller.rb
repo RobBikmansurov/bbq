@@ -14,7 +14,7 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = current_user.events.build
+    @event = current_user.events.build(datetime: Time.zone.now)
   end
 
   def edit; end
