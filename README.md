@@ -14,7 +14,11 @@ Development environment requirements :
 
 ```bash
 $ git clone git@github.com:RobBikmansurov/bbq.git
+$ sudo apt install nodejs libpq-dev
+$ sudo apt-get install imagemagick libmagickwand-dev
 $ cd bbq
+$ bundle config set without 'production'
+$ bundle install
 $ rails db:setup
 $ rails db:seed
 ```
