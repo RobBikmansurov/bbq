@@ -3,8 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 
-gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
-gem 'puma', '~> 4.1'
+gem 'rails', '~> 6.0.3'
+gem 'puma', '~> 5.0'
 gem 'webpacker', '~> 4.0'
 
 gem 'devise'
@@ -16,8 +16,15 @@ gem 'rmagick'
 gem 'fog-aws'
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'sqlite3', '~> 1.4'
+  gem 'sqlite3'
+  gem 'byebug'
+  gem 'rspec-rails', '~> 4.0.1'
+  gem 'factory_bot_rails'
+  gem 'shoulda-matchers'
+  gem 'rails-controller-testing'
+  gem 'capybara'
+  gem 'launchy' # save_and_open_page in features spec
+  gem 'database_cleaner-active_record'
 end
 
 group :development do

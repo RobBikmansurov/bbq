@@ -10,6 +10,8 @@ ru:
       comments: Комментарии
       photo: Фотография
       photos: Фотографии
+      subscription: Подписка
+      subscriptions: Подписки
 
     attributes:
       event:
@@ -27,6 +29,9 @@ ru:
         user_name: Пользователь
       photo:
         photo: Фотография
+      subscription:
+        user_email: Email
+        user_name: Подписчик
 
   action:
     show: Показать
@@ -39,6 +44,8 @@ ru:
     sign_in: Войти
     sign_out: Выйти
     sign_up: Зарегистрироваться
+    send: Отправить
+    subscribe: Подписаться
 
   app:
     name: 'Шашлыки'

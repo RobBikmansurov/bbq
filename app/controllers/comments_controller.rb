@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
       notify_subscribers(@event, @comment)
       redirect_to @event, notice: I18n.t('controllers.comments.created')
     else
-      render :new
+      render 'events/show', alert: I18n.t('controllers.comments.error')
     end
   end
 
