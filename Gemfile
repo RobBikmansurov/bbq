@@ -28,6 +28,14 @@ group :development, :test do
 end
 
 group :development do
+  gem 'capistrano', '~> 3.14.1', require: false
+  gem 'capistrano-rails', '~> 1.6', require: false
+  gem 'capistrano-bundler', '~> 2.0'
+  gem 'capistrano-rbenv', '~> 2.2'
+  gem 'capistrano3-puma'
+  gem 'ed25519', '~> 1.2'
+  gem 'bcrypt_pbkdf', '~> 1'
+
   gem 'web-console', '>= 3.3.0'
 end
 
