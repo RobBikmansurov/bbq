@@ -34,6 +34,7 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
+set :keep_releases, 3
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
@@ -57,14 +58,13 @@ set :bundle_roles, :all                                         # this is defaul
 set :bundle_config, { deployment: true }                        # this is default
 set :bundle_servers, -> { release_roles(fetch(:bundle_roles)) } # this is default
 set :bundle_binstubs, -> { shared_path.join('bin') }            # default: nil
-# set :bundle_gemfile, -> { release_path.join('MyGemfile') }      # default: nil
 set :bundle_gemfile, -> { release_path.join('Gemfile') }      # default: nil
 set :bundle_path, -> { shared_path.join('bundle') }             # this is default. set it to nil to use bundler's default path
 set :bundle_without, %w{development test}.join(' ')             # this is default
 set :bundle_flags, '--quiet'                                    # this is default
 set :bundle_env_variables, {}                                   # this is default
 set :bundle_clean_options, ""                                   # this is default. Use "--dry-run" if you just want to know what gems would be deleted, without actually deleting them
-set :bundle_check_before_install, true                          # default: true. Set this to false to bypass running `bundle check` before executing `bundle install`
+set :bundle_check_before_install, false                          # default: true. Set this to false to bypass running `bundle check` before executing `bundle install`
 
 set :bundle_jobs, 8 # default: 4, only available for Bundler >= 1.4
 set :bundle_binstubs, -> { shared_path.join('bin') }
