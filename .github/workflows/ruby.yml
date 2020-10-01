@@ -29,5 +29,9 @@ jobs:
         ruby-version: 2.7.1
     - name: Install dependencies
       run: bundle install
+    - name: Create database.yml
+      run: copy config/database.yml.example config/database.yml
     - name: Run tests
-      run: bundle exec rake
+      run: |
+        bundle exec rails db:prepare
+        bundle exec rails rspec

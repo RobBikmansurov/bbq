@@ -1,6 +1,8 @@
 
 # BBQ - training project
 
+![Ruby](https://github.com/RobBikmansurov/bbq/workflows/Ruby/badge.svg)
+
 ## Getting started
 
 Try the app on [Heroku](https://bbq-robb.herokuapp.com/)
