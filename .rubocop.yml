@@ -9,6 +9,7 @@ AllCops:
     - node_modules/**/*
     - vendor/**/*
     - Gemfile
+    - config/**/*
   TargetRubyVersion: 2.7
 
 Style/Documentation:
