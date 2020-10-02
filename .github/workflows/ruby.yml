@@ -30,7 +30,7 @@ jobs:
     - name: Install dependencies
       run: bundle install
     - name: Create database.yml
-      run: copy config/database.yml.example config/database.yml
+      run: cp config/database.yml.example config/database.yml
     - name: Run tests
       run: |
         bundle exec rails db:prepare
