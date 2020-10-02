@@ -33,5 +33,5 @@ jobs:
       run: cp config/database.yml.example config/database.yml
     - name: Run tests
       run: |
-        bundle exec rails db:prepare
+        bundle exec rails db:migrate
         bundle exec rails rspec
