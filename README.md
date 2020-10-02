@@ -6,6 +6,8 @@
 ## Getting started
 
 Try the app on [Heroku](https://bbq-robb.herokuapp.com/)
+or [there](https://bbq.bikmansurov.ru/)
+or [here](http://161.35.93.15/)
 
 ### Install
 
