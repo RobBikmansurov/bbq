@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.feature 'User before creating event', type: :feature do
-
   scenario 'must be logged' do
     visit '/'
 

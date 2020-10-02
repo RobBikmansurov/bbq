@@ -79,7 +79,7 @@ RSpec.configure do |config|
   #   # Setting this allows you to use `--seed` to deterministically reproduce
   #   # test failures related to randomization by passing the same `--seed` value
   #   # as the one that triggered the failure.
-     config.example_status_persistence_file_path = 'spec/rspec_status.txt'
-     config.order = :random
-     Kernel.srand config.seed
+  config.example_status_persistence_file_path = 'spec/rspec_status.txt'
+  config.order = :random
+  Kernel.srand config.seed
 end
