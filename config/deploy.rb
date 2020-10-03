@@ -22,7 +22,7 @@ set :deploy_to, "/var/www/html/bbq"
 
 # Default value for :linked_files is []
 append :linked_files, 'config/database.yml', 'config/master.key', 'config/credentials.yml.enc'
-
+append :linked_files, ['config/initialisers/production.rb']
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", 'public/uploads'
 
