@@ -36,6 +36,7 @@ ru:
   action:
     show: Показать
     back: Назад
+    create_event: Создать событие
     update: Изменить
     destroy: Удалить
     save: Ввести
