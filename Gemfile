@@ -14,6 +14,7 @@ gem 'rails-i18n', '~> 6.0.0'
 gem 'carrierwave', '~> 2.0'
 gem 'rmagick'
 gem 'fog-aws'
+gem 'pundit'
 
 group :development, :test do
   gem 'sqlite3'
