@@ -1,14 +1,14 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.14.1"
+lock '~> 3.14.1'
 
-set :application, "bbq"
-set :repo_url, "git@github.com:RobBikmansurov/bbq.git"
+set :application, 'bbq'
+set :repo_url, 'git@github.com:RobBikmansurov/bbq.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/var/www/html/bbq"
+set :deploy_to, '/var/www/html/bbq'
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -22,9 +22,9 @@ set :deploy_to, "/var/www/html/bbq"
 
 # Default value for :linked_files is []
 append :linked_files, 'config/database.yml', 'config/master.key', 'config/credentials.yml.enc'
-append :linked_files, ['config/initialisers/production.rb']
+append :linked_files, 'config/environments/production.rb'
 # Default value for linked_dirs is []
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", 'public/uploads'
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/uploads'
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -47,9 +47,8 @@ set :rbenv_ruby, '2.7.1'
 # set :rbenv_ruby, File.read('.ruby-version').strip
 
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
-set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+set :rbenv_map_bins, %w[rake gem bundle ruby rails]
 set :rbenv_roles, :all # default value
-
 
 # capistrano/bundler
 append :linked_dirs, '.bundle'
@@ -58,13 +57,13 @@ set :bundle_roles, :all                                         # this is defaul
 set :bundle_config, { deployment: true }                        # this is default
 set :bundle_servers, -> { release_roles(fetch(:bundle_roles)) } # this is default
 set :bundle_binstubs, -> { shared_path.join('bin') }            # default: nil
-set :bundle_gemfile, -> { release_path.join('Gemfile') }      # default: nil
+set :bundle_gemfile, -> { release_path.join('Gemfile') } # default: nil
 set :bundle_path, -> { shared_path.join('bundle') }             # this is default. set it to nil to use bundler's default path
-set :bundle_without, %w{development test}.join(' ')             # this is default
+set :bundle_without, %w[development test].join(' ')             # this is default
 set :bundle_flags, '--quiet'                                    # this is default
 set :bundle_env_variables, {}                                   # this is default
-set :bundle_clean_options, ""                                   # this is default. Use "--dry-run" if you just want to know what gems would be deleted, without actually deleting them
-set :bundle_check_before_install, false                          # default: true. Set this to false to bypass running `bundle check` before executing `bundle install`
+set :bundle_clean_options, ''                                   # this is default. Use "--dry-run" if you just want to know what gems would be deleted, without actually deleting them
+set :bundle_check_before_install, false # default: true. Set this to false to bypass running `bundle check` before executing `bundle install`
 
 set :bundle_jobs, 8 # default: 4, only available for Bundler >= 1.4
 set :bundle_binstubs, -> { shared_path.join('bin') }
