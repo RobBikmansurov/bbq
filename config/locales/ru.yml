@@ -104,3 +104,6 @@ ru:
       datetime: 'Состоится'
       owner: 'Организатор'
   .pincode: Код доступа
+
+  pundit:
+    not_authorized: 'Вам это не разрешено!'

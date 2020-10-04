@@ -1,8 +1,10 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: %i[show index]
-  before_action :load_event, only: :show
-  before_action :load_current_user_event, only: %i[edit update destroy]
+  before_action :load_event, only: %i[show edit update destroy]
   before_action :pincode_guard!, only: [:show]
+
+  after_action :verify_authorized, except: %i[show index]
+  after_action :verify_policy_scoped, only: %i[edit update destroy]
 
   def index
     @events = Event.all
@@ -15,13 +17,17 @@ class EventsController < ApplicationController
   end
 
   def new
+    authorize Event
     @event = current_user.events.build(datetime: Time.zone.now)
   end
 
-  def edit; end
+  def edit
+    authorize @event
+  end
 
   def create
     @event = current_user.events.build(event_params)
+    authorize Event
 
     if @event.save
       redirect_to @event, notice: 'Event was successfully created.'
@@ -31,6 +37,7 @@ class EventsController < ApplicationController
   end
 
   def update
+    authorize @event
     if @event.update(event_params)
       redirect_to @event, notice: 'Event was successfully updated.'
     else
@@ -39,18 +46,15 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    authorize @event
     @event.destroy
     redirect_to events_url, notice: 'Event was successfully destroyed.'
   end
 
   private
 
-  def load_current_user_event
-    @event = current_user.events.find(params[:id])
-  end
-
   def load_event
-    @event = Event.find(params[:id])
+    @event = policy_scope(Event).find(params[:id])
   end
 
   def event_params

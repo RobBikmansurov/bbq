@@ -37,3 +37,6 @@ en:
     company: Good programmer
 
   are_you_sure: Are you sure?'
+
+pundit:
+  not_authorized: 'This is not allowed for you!'
