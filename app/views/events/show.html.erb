@@ -43,9 +43,11 @@
         </div>
       </div>
 
-      <div class="event-photo-form">
-        <%= render partial: 'photos/form', locals: {photo: @photo || @event.photos.build} %>
-      </div>
+      <% if user_signed_in? %>
+        <div class="event-photo-form">
+          <%= render partial: 'photos/form', locals: {photo: @photo || @event.photos.build} %>
+        </div>
+      <% end %>
 
       <div class="event-comments buffer-top">
         <%= render partial: 'comments/form',

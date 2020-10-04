@@ -72,4 +72,11 @@ RSpec.feature 'Unlogged user', type: :feature do
     expect(page).to have_text(I18n.l(event_with_pincode.datetime, format: :short).to_s)
     expect(page).to have_css('div.yandex-map')
   end
+
+  scenario 'not upload images' do
+    visit event_path(event)
+
+    expect(page).to have_no_field('photo_photo')
+    expect(page).to have_no_button(I18n.t('action.upload'))
+  end
 end
