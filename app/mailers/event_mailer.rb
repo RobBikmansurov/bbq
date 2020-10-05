@@ -20,5 +20,4 @@ class EventMailer < ApplicationMailer
 
     mail to: email, subject: "Новая фотография у события: #{event.title}"
   end
-
 end
