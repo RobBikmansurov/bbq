@@ -1,5 +1,12 @@
 <% image_title = "Добавил #{render partial: 'users/user', object: photo.user}" %>
 
+<% if current_user_can_edit?(photo) %>
+  <% image_title += link_to(event_photo_path(photo.event, photo),
+              html_options = {method: :delete, data: {confirm: t('.destroy_confirm')}}) do %>
+    <i class="fa fa-trash sm-2 ml-5" aria-hidden="true"></i>
+  <% end %>
+<% end %>
+
 <%= link_to image_tag(photo.photo.thumb.url, class: "img-fluid"),
             photo.photo.url,
             data: {toggle: 'lightbox', title: image_title, gallery: 'gallery'} %>
