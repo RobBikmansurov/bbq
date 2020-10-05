@@ -1,0 +1,9 @@
+<%= t '.title' %>
+----
+Новая фотография:
+<%= image_tag(@photo.photo.thumb.url) %>
+
+--------------------------------
+<%= t '.event' %>: <%= @event.title %>
+<%= t '.datetime' %>: <%= l @event.datetime, format: :short %>
+<%= t '.owner' %>: <%= @event.user.name %>

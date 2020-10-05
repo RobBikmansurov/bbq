@@ -104,6 +104,11 @@ ru:
       event: 'Событие'
       datetime: 'Состоится'
       owner: 'Организатор'
+    photo:
+      title: Новая фотография
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
   .pincode: Код доступа
 
   pundit:
