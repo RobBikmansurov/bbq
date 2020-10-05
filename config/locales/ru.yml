@@ -105,11 +105,13 @@ ru:
       datetime: 'Состоится'
       owner: 'Организатор'
     photo:
-      title: Новая фотография
+      title: 'Новая фотография'
       event: 'Событие'
       datetime: 'Состоится'
       owner: 'Организатор'
-  .pincode: Код доступа
+      author: 'Добавил'
+
+  .pincode: 'Код доступа'
 
   pundit:
     not_authorized: 'Вам это не разрешено!'

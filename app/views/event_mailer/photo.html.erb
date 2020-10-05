@@ -1,7 +1,11 @@
 <h1><%= t '.title' %></h1>
 <p><%= link_to image_tag(@photo.photo.url, class: "img-fluid"),
-               image_url(@photo.photo.url) %>
-<%= link_to @photo.photo.identifier, "#{Rails.application.config.action_controller.asset_host}#{image_url(@photo.photo.url)}" %></p>
+               image_url(@photo.photo.url) %></p>
+<p><%= link_to @photo.photo.identifier,
+               "#{Rails.application.config.action_controller.asset_host}#{image_url(@photo.photo.url)}" %>
+<%= t '.author' %>: <strong><%= @photo.user.name %></strong> <%= l @photo.created_at, format: :short %></p>
+
+</p>
 <hr/>
 
 <h3><%= t '.event' %>: <%= link_to @event.title, event_url(@event) %></h3>
