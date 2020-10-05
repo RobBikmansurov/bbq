@@ -3,21 +3,22 @@ class EventsController < ApplicationController
   before_action :load_event, only: %i[show edit update destroy]
   before_action :pincode_guard!, only: [:show]
 
-  after_action :verify_authorized, except: %i[show index]
+  after_action :verify_authorized, except: %i[show new]
   after_action :verify_policy_scoped, only: %i[edit update destroy]
 
   def index
-    @events = Event.all
+    authorize Event
+    @events = policy_scope(Event).all
   end
 
   def show
+    authorize @event
     @comment = @event.comments.build(params[:comment])
     @subscription = @event.subscriptions.build(params[:subscription])
     @photo = @event.photos.build(params[:photo])
   end
 
   def new
-    authorize Event
     @event = current_user.events.build(datetime: Time.zone.now)
   end
 
@@ -27,7 +28,7 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.build(event_params)
-    authorize Event
+    authorize @event
 
     if @event.save
       redirect_to @event, notice: 'Event was successfully created.'

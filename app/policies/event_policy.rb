@@ -1,4 +1,12 @@
 class EventPolicy < ApplicationPolicy
+  def show?
+    true
+  end
+
+  def index?
+    true
+  end
+
   def create?
     user.present?
   end
@@ -8,7 +16,7 @@ class EventPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user_is_owner?(record)
+    update?
   end
 
   class Scope < Scope
