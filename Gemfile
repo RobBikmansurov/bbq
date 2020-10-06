@@ -15,6 +15,7 @@ gem 'carrierwave', '~> 2.0'
 gem 'rmagick'
 gem 'fog-aws'
 gem 'pundit'
+gem 'resque', '~> 2.0'
 
 group :development, :test do
   gem 'sqlite3'
@@ -25,6 +26,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'capybara'
   gem 'launchy' # save_and_open_page in features spec
+  gem 'letter_opener'
   gem 'database_cleaner-active_record'
 end
 

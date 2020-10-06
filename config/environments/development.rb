@@ -37,6 +37,7 @@ Rails.application.configure do
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
+  config.active_job.queue_adapter = :resque
 
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
@@ -59,4 +60,6 @@ Rails.application.configure do
   config.action_controller.asset_host = 'http://localhost:3000'
   config.action_mailer.asset_host = config.action_controller.asset_host
   config.action_mailer.default_options = {from: 'BBQ! <bbq@bikmansurov.ru>'}
+  config.action_mailer.delivery_method = :letter_opener
 end
+

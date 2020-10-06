@@ -23,4 +23,9 @@ class User < ApplicationRecord
     Subscription.where(user_id: nil, user_email: email)
                 .update_all(user_id: id)
   end
+
+  def send_devise_notification(notification, *args)
+    devise_mailer.send(notification, self, *args).deliver_later
+  end
 end
+
