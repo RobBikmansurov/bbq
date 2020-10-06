@@ -33,10 +33,11 @@ end
 group :development do
   gem 'capistrano', '~> 3.14.1', require: false
   gem 'capistrano-rails', '~> 1.6', require: false
-  gem 'capistrano-bundler', '~> 2.0'
-  gem 'capistrano-rbenv', '~> 2.2'
+  gem 'capistrano-bundler', '~> 2.0', require: false
+  gem 'capistrano-rbenv', '~> 2.2', require: false
   # gem 'capistrano3-puma'
-  gem 'capistrano-passenger'
+  gem 'capistrano-passenger', require: false
+  gem 'capistrano-resque', '~> 0.2.3', require: false
   gem 'ed25519', '~> 1.2'
   gem 'bcrypt_pbkdf', '~> 1'
 

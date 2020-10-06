@@ -67,3 +67,6 @@ set :bundle_check_before_install, false # default: true. Set this to false to by
 
 set :bundle_jobs, 8 # default: 4, only available for Bundler >= 1.4
 set :bundle_binstubs, -> { shared_path.join('bin') }
+
+after "deploy:restart", "resque:restart"
+
