@@ -65,3 +65,4 @@ set :ssh_options, {
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+set :deploy_to, '/var/www/html/bbq'

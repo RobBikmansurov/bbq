@@ -6,6 +6,7 @@
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
+server '161.35.93.15', user: 'deploy', roles: %w[app db web resque_worker]
 
 # role-based syntax
 # ==================
@@ -18,6 +19,9 @@
 # role :app, %w{deploy@example.com}, my_property: :my_value
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
+
+# При запуске воркера загружать Rails приложение
+set :resque_environment_task, true
 
 # Configuration
 # =============
@@ -40,6 +44,14 @@
 #    forward_agent: false,
 #    auth_methods: %w(password)
 #  }
+
+set :ssh_options, {
+  keys: %w[/home/rob/.ssh/deploy-ssh-key-digital_ocean.key],
+  # keys: %w(/home/deploy/.ssh/id_rsa),
+  forward_agent: true,
+  auth_methods: %w[publickey]
+}
+
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
@@ -53,3 +65,5 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+
+set :deploy_to, '/home/deploy/bbq'
