@@ -95,7 +95,7 @@ production:
   # Cache manifest.json for performance
   cache_manifest: true
 
-production:
+staging:
   <<: *default
   compile: false
   extract_css: true
