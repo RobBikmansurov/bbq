@@ -66,4 +66,5 @@ set :ssh_options, {
 #     # password: "please use keys"
 #   }
 
-set :deploy_to, '/home/deploy/bbq'
+# set :deploy_to, '/home/deploy/bbq'
+set :deploy_to, '/var/www/html/bbq'
