@@ -89,19 +89,18 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
-  config.action_mailer.default_url_options = { host: 'bbq-robb.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'bbq.bikmansurov.ru' }
   config.action_mailer.raise_delivery_errors = false
   # Делать рассылку писем (при false приложение только имитирует отправку)
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.delivery_method = :smtp
-  ActionMailer::Base.smtp_settings = {
-    address:        'smtp.sendgrid.net',
-    port:           '587',
-    authentication: :plain,
-    user_name:      ENV['SENDGRID_USERNAME'],
-    password:       ENV['SENDGRID_PASSWORD'],
-    domain:         'heroku.com',
+  config.action_mailer.smtp_settings = {
+    address:   'smtp.gmail.com',
+    port:      '587',
+    user_name: Rails.application.credentials.send(Rails.env)[:mail][:user_name],
+    password:  Rails.application.credentials.send(Rails.env)[:mail][:password],
+    authentication: 'plain',
     enable_starttls_auto: true
   }
+  config.action_mailer.default_options = {from: 'BBQ! <bbq@bikmansurov.ru>'}
 
 end
