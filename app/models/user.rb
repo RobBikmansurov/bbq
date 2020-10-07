@@ -4,9 +4,9 @@ class User < ApplicationRecord
   before_validation :rand_name, on: :create
   after_commit :link_subscriptions, on: :create
 
-  has_many :events
+  has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :subscriptions
+  has_many :subscriptions, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
 
@@ -15,7 +15,7 @@ class User < ApplicationRecord
   private
 
   def rand_name
-    self.name = "Товарисч #{rand(1000)}"
+    self.name = "Товарисч #{rand(1000)}" if name.blank?
   end
 
   # обновить подписки, если юзер сначала подписался, а потом зарегистрировался

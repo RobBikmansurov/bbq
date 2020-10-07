@@ -10,10 +10,9 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(
-      :account_update,
-      keys: %i[password password_confirmation current_password]
-    )
+    attributes = %i[name email password password_confirmation current_password]
+    devise_parameter_sanitizer.permit(:sign_up, keys: attributes)
+    devise_parameter_sanitizer.permit(:account_update, keys: attributes)
   end
 
   def current_user_can_edit?(model)
