@@ -23,7 +23,6 @@ set :repo_url, 'git@github.com:RobBikmansurov/bbq.git'
 # Default value for :linked_files is []
 # append :linked_files, 'config/database.yml', 'config/master.key', 'config/credentials.yml.enc'
 append :linked_files, 'config/database.yml', 'config/master.key'
-# append :linked_files, 'config/environments/production.rb'
 # Default value for linked_dirs is []
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/uploads'
 
@@ -69,5 +68,5 @@ set :bundle_check_before_install, false # default: true. Set this to false to by
 set :bundle_jobs, 8 # default: 4, only available for Bundler >= 1.4
 set :bundle_binstubs, -> { shared_path.join('bin') }
 
-after "deploy:restart", "resque:restart"
+# after "deploy:restart", "resque:restart"
 
