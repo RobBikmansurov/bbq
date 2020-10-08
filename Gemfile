@@ -37,7 +37,7 @@ group :development do
   gem 'capistrano-rbenv', '~> 2.2', require: false
   # gem 'capistrano3-puma'
   gem 'capistrano-passenger', require: false
-  gem 'capistrano-resque', '~> 0.2.3', require: false
+  gem 'capistrano-resque', '~> 0.2.2', require: false
   gem 'ed25519', '~> 1.2'
   gem 'bcrypt_pbkdf', '~> 1'
 
