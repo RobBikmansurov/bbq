@@ -7,6 +7,8 @@ services:
 before_install:
   - nvm install --lts
 before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
   - bundle install --jobs=3 --retry=3
   - yarn
   - bundle exec rake db:setup
