@@ -1,7 +1,7 @@
 
 # BBQ - training project
 
-![Ruby](https://github.com/RobBikmansurov/bbq/workflows/Ruby/badge.svg)
+[![Build Status](https://travis-ci.com/RobBikmansurov/bbq.svg?branch=master)](https://travis-ci.com/RobBikmansurov/bbq)
 
 ## Getting started
 
