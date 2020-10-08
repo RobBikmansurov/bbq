@@ -22,6 +22,11 @@ server 'bikmansurov.ru', user: 'deploy', roles: %w[app db web resque_worker]
 
 # При запуске воркера загружать Rails приложение
 set :resque_environment_task, true
+role :resque_worker, "#{fetch(:application)}"
+role :resque_scheduler, "#{fetch(:application)}"
+
+set :workers, { "#{fetch(:application)}" => 1 }
+
 
 # Configuration
 # =============
