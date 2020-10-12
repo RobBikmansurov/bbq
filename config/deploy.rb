@@ -8,7 +8,7 @@ set :repo_url, 'git@github.com:RobBikmansurov/bbq.git'
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-## set :deploy_to, '/var/www/html/bbq'
+set :deploy_to, '/var/www/html/bbq'
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -63,9 +63,9 @@ set :bundle_without, %w[development test].join(' ')             # this is defaul
 set :bundle_flags, '--quiet'                                    # this is default
 set :bundle_env_variables, {}                                   # this is default
 set :bundle_clean_options, ''                                   # this is default. Use "--dry-run" if you just want to know what gems would be deleted, without actually deleting them
-set :bundle_check_before_install, true # default: true. Set this to false to bypass running `bundle check` before executing `bundle install`
+set :bundle_check_before_install, false # default: true. Set this to false to bypass running `bundle check` before executing `bundle install`
 
-set :bundle_jobs, 2 # default: 4, only available for Bundler >= 1.4
+set :bundle_jobs, 4 # default: 4, only available for Bundler >= 1.4
 set :bundle_binstubs, -> { shared_path.join('bin') }
 
 # after "deploy:restart", "resque:restart"

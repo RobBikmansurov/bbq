@@ -35,7 +35,7 @@ require 'capistrano/bundler'
 # require "capistrano/rails/migrations"
 require 'capistrano/passenger'
 # require 'capistrano/puma'
-require 'capistrano-resque'
+## require 'capistrano-resque'
 
 # install_plugin Capistrano::Puma, load_hooks: false  # Default puma tasks without hooks
 # install_plugin Capistrano::Puma::Workers  # if you want to control the workers (in cluster mode)
