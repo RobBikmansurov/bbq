@@ -21,10 +21,11 @@ set :deploy_to, '/var/www/html/bbq'
 # set :pty, true
 
 # Default value for :linked_files is []
-# append :linked_files, 'config/database.yml', 'config/master.key', 'config/credentials.yml.enc'
 append :linked_files, 'config/master.key', 'config/database.yml'
 # Default value for linked_dirs is []
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/uploads'
+append :linked_dirs, '.bundle'
+
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -67,6 +68,8 @@ set :bundle_check_before_install, false # default: true. Set this to false to by
 
 set :bundle_jobs, 4 # default: 4, only available for Bundler >= 1.4
 set :bundle_binstubs, -> { shared_path.join('bin') }
+
+after 'deploy:published', 'bundler:clean' # clean gems after susccessful deploy
 
 # after "deploy:restart", "resque:restart"
 
