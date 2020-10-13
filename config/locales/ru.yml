@@ -26,12 +26,12 @@ ru:
         avatar: Аватар
       comment:
         body: Комментарий
-        user_name: Пользователь
+        user_name: Имя комментатора
       photo:
         photo: Фотография
       subscription:
         user_email: Email
-        user_name: Подписчик
+        user_name: Имя подписчика
 
   action:
     show: Показать

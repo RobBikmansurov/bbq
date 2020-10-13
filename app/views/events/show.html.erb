@@ -41,7 +41,7 @@
       </div>
 
       <% if user_signed_in? %>
-        <div class="event-photo-form">
+        <div class="event-photo-form buffer-top">
           <%= render partial: 'photos/form', locals: {photo: @photo || @event.photos.build} %>
         </div>
       <% end %>
@@ -64,7 +64,7 @@
       </div>
       <% if @event.subscriptions.except(@subscription).any? %>
         <div class="event-subscriptions">
-          <h4>Пойдут:</h4>
+          <h4>Пойдут (подписались):</h4>
           <div>
             <p>
               <%= render partial: 'subscriptions/subscription',
@@ -76,7 +76,7 @@
       <% if current_user_can_create?(@subscription) &&
           !current_user_already_subscribed?(@subscription) %>
         <div class="event-subscription-form">
-          <h4>Я пойду:</h4>
+          <h4>Я собираюсь пойти:</h4>
           <div>
             <%= render partial: 'subscriptions/form', locals: {
                 subscription: @subscription || @event.subscriptions.build

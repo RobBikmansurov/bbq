@@ -1,19 +1,20 @@
+Новый комментарий:
 <%= form_for [@event, comment] do |f| %>
     <%= render partial: 'partials/form_errors', locals: {model: comment} %>
 
-    <div class="form-group">
-      <%= f.label :body %>
-      <%= f.text_area :body, class: 'form-control' %>
-    </div>
+    <div class="form-row align-items-top">
+      <div class="col custom">
+        <%= f.text_area :body, class: 'form-control', required: true, placeholder: 'Текст комментария' %>
+      </div>
 
-    <% unless user_signed_in? %>
-        <div class="form-group">
-          <%= f.label :user_name %>
-          <%= f.text_field :user_name, class: 'form-control' %>
+      <% unless user_signed_in? %>
+        <div class="col-3 custom">
+          <%= f.text_field :user_name, class: 'form-control', required: true, placeholder: 'Имя комментатора' %>
         </div>
-    <% end %>
+      <% end %>
 
-    <div class="actions">
-      <%= f.submit I18n.t('action.send'), class: 'btn btn-primary' %>
+      <div class="col-auto">
+        <%= f.submit I18n.t('action.send'), class: 'btn btn-primary' %>
+      </div>
     </div>
 <% end %>
