@@ -3,12 +3,11 @@ class EventsController < ApplicationController
   before_action :load_event, only: %i[show edit update destroy]
   before_action :pincode_guard!, only: [:show]
 
-  after_action :verify_authorized, except: %i[show new]
-  after_action :verify_policy_scoped, only: %i[edit update destroy]
+  after_action :verify_authorized, only: %i[show destroy edit update create]
+  after_action :verify_policy_scoped, only: :index
 
   def index
-    authorize Event
-    @events = policy_scope(Event).all
+    @events = policy_scope(Event)
   end
 
   def show
@@ -59,7 +58,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    # params.fetch(:event, {})
     params.require(:event).permit(:title, :address, :datetime, :description, :user, :pincode)
   end
 
