@@ -15,7 +15,7 @@ gem 'carrierwave', '~> 2.0'
 gem 'rmagick'
 gem 'fog-aws'
 gem 'pundit'
-## gem 'resque', '~> 2.0'
+gem 'resque', '~> 2.0'
 
 group :development, :test do
   gem 'sqlite3'
@@ -35,9 +35,8 @@ group :development do
   gem 'capistrano-rails', '~> 1.6', require: false
   gem 'capistrano-bundler', '~> 2.0'
   gem 'capistrano-rbenv', '~> 2.2', require: false
-  # gem 'capistrano3-puma'
   gem 'capistrano-passenger', require: false
-  ## gem 'capistrano-resque'
+  gem 'capistrano-resque', require: false
   gem 'ed25519', '~> 1.2'
   gem 'bcrypt_pbkdf', '~> 1'
 
