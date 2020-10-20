@@ -17,6 +17,9 @@ gem 'fog-aws'
 gem 'pundit'
 gem 'resque', '~> 2.0'
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug'

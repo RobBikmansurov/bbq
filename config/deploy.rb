@@ -47,7 +47,10 @@ set :rbenv_ruby, '2.7.1'
 # in case you want to set ruby version from the file:
 # set :rbenv_ruby, File.read('.ruby-version').strip
 
-set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+## set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+set :rbenv_prefix, "env RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+
+
 set :rbenv_map_bins, %w[rake gem bundle ruby rails]
 set :rbenv_roles, :all # default value
 
@@ -70,5 +73,5 @@ set :bundle_jobs, 4 # default: 4, only available for Bundler >= 1.4
 set :bundle_binstubs, -> { shared_path.join('bin') }
 
 after 'deploy:published', 'bundler:clean' # clean gems after susccessful deploy
-after "deploy:restart", "resque:restart"
+# after "deploy:restart", "resque:restart"
 

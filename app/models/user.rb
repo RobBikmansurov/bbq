@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :omniauthable, omniauth_providers: [:facebook]
+
   before_validation :rand_name, on: :create
   after_commit :link_subscriptions, on: :create
 
@@ -11,6 +13,22 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   validates :name, presence: true, length: { maximum: 35 }
+
+  def self.find_for_facebook_oauth(access_token)
+    email = access_token.info.email
+    user = where(email: email).first
+
+    return user if user.present?
+
+    provider = access_token.provider
+    id = access_token.extra.raw_info.id
+    url = "https://facebook.com/#{id}"
+
+    where(url: url, provider: provider).first_or_create! do |user|
+      user.email = email
+      user.password = Devise.friendly_token.first(16)
+    end
+  end
 
   private
 

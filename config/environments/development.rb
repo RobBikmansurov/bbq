@@ -51,15 +51,17 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:   'smtp.gmail.com',
     port:      '587',
-    user_name: Rails.application.credentials.send(Rails.env)[:mail][:user_name],
-    password:  Rails.application.credentials.send(Rails.env)[:mail][:password],
+    user_name: Rails.application.credentials.dig(Rails.env.to_sym, :mail, :user_name),
+    password:  Rails.application.credentials.dig(Rails.env.to_sym, :mail, :password),
     authentication: 'plain',
     enable_starttls_auto: true
   }
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000, only_path: false }
-  config.action_controller.asset_host = 'http://localhost:3000'
+  config.action_controller.asset_host = 'https://lvh.me:3000'
   config.action_mailer.asset_host = config.action_controller.asset_host
   config.action_mailer.default_options = {from: 'BBQ! <bbq@bikmansurov.ru>'}
   config.action_mailer.delivery_method = :letter_opener
+  config.hosts << 'lvh.me'
+  config.force_ssl = true
 end
 
