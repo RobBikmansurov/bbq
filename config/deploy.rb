@@ -58,7 +58,6 @@ append :linked_dirs, '.bundle'
 set :bundle_roles, :all                                         # this is default
 # set :bundle_config, { deployment: true }                        # this is default
 set :bundle_servers, -> { release_roles(fetch(:bundle_roles)) } # this is default
-set :bundle_binstubs, -> { shared_path.join('bin') }            # default: nil
 set :bundle_gemfile, -> { release_path.join('Gemfile') } # default: nil
 set :bundle_path, -> { shared_path.join('bundle') }             # this is default. set it to nil to use bundler's default path
 set :bundle_without, %w[development test].join(' ')             # this is default
@@ -70,6 +69,6 @@ set :bundle_check_before_install, false # default: true. Set this to false to by
 set :bundle_jobs, 4 # default: 4, only available for Bundler >= 1.4
 set :bundle_binstubs, -> { shared_path.join('bin') }
 
-after 'deploy:published', 'bundler:clean' # clean gems after susccessful deploy
+after 'deploy:published', 'bundler:clean' # clean gems after successful deploy
 # after "deploy:restart", "resque:restart"
 

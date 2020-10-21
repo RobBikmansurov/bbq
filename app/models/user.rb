@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:facebook, :vkontakte, :twitter]
+         :omniauthable, omniauth_providers: [:facebook, :vkontakte] # :twitter
 
   before_validation :rand_name, on: :create
   after_commit :link_subscriptions, on: :create
