@@ -19,6 +19,8 @@ gem 'resque', '~> 2.0'
 
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
+gem 'omniauth-twitter'
 
 group :development, :test do
   gem 'sqlite3'
