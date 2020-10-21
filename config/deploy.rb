@@ -24,8 +24,6 @@ set :deploy_to, '/var/www/html/bbq'
 append :linked_files, 'config/master.key', 'config/database.yml'
 # Default value for linked_dirs is []
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/uploads'
-append :linked_dirs, '.bundle'
-
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -58,7 +56,7 @@ set :rbenv_roles, :all # default value
 append :linked_dirs, '.bundle'
 
 set :bundle_roles, :all                                         # this is default
-set :bundle_config, { deployment: true }                        # this is default
+# set :bundle_config, { deployment: true }                        # this is default
 set :bundle_servers, -> { release_roles(fetch(:bundle_roles)) } # this is default
 set :bundle_binstubs, -> { shared_path.join('bin') }            # default: nil
 set :bundle_gemfile, -> { release_path.join('Gemfile') } # default: nil
