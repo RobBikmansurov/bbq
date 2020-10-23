@@ -89,7 +89,7 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
-  config.action_mailer.default_url_options = { host: 'bbq.bikmansurov.ru' }
+  config.action_mailer.default_url_options = { host: 'bbq.bikmansurova.ru' }
   config.action_mailer.raise_delivery_errors = false
   # Делать рассылку писем (при false приложение только имитирует отправку)
   config.action_mailer.perform_deliveries = true
@@ -101,6 +101,6 @@ Rails.application.configure do
     authentication: 'plain',
     enable_starttls_auto: true
   }
-  config.action_mailer.default_options = {from: 'BBQ! <bbq@bikmansurov.ru>'}
+  config.action_mailer.default_options = {from: 'BBQ! <bbq@bikmansurova.ru>'}
 
 end

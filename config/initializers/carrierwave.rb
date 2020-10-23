@@ -1,3 +1,5 @@
+puts "RAILS_ENV= #{Rails.env} staging? - #{Rails.env.staging?}"
+
 if Rails.env.production? || Rails.env.staging?
   CarrierWave.configure do |config|
     config.fog_credentials = {
