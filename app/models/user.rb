@@ -39,8 +39,6 @@ class User < ApplicationRecord
     provider = access_token.provider
     url = access_token.info.urls.first[1]
 
-    byebug
-
     where(url: url, provider: provider).first_or_create! do |user|
       user.avatar = access_token.info.image
       user.email = email
