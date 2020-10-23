@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:facebook, :vkontakte] # :twitter
+         :omniauthable, omniauth_providers: %i[facebook vkontakte] # :twitter
 
   before_validation :rand_name, on: :create
   after_commit :link_subscriptions, on: :create
@@ -14,30 +14,17 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 35 }
 
-  def self.find_for_facebook_oauth(access_token)
+  def self.find_for_oauth_provider(access_token)
     email = access_token.info.email
+    email ||= "change-me-#{access_token.info.first_name}@#{access_token.uid}.#{access_token.provider}.com"
     user = where(email: email).first
-
     return user if user.present?
 
-    provider = access_token.provider
-    id = access_token.extra.raw_info.id
-    url = "https://facebook.com/#{id}"
-
-    where(url: url, provider: provider).first_or_create! do |user|
-      user.email = email
-      user.password = Devise.friendly_token.first(16)
-    end
+    user_from_oauth(access_token, email)
   end
 
-  def self.find_for_vkontakte_oauth(access_token)
-    email = access_token.info.email
-    email = "change-me-#{access_token.info.first_name}@#{access_token.uid}.#{access_token.provider}.com" unless email
-    user = where(email: email).first
-    return user if user.present?
-
-    provider = access_token.provider
-    url = access_token.info.urls.first[1]
+  def self.user_from_oauth(access_token, email)
+    url, provider = oauth_parse(access_token)
 
     where(url: url, provider: provider).first_or_create! do |user|
       user.avatar = access_token.info.image
@@ -45,6 +32,16 @@ class User < ApplicationRecord
       user.name = access_token.info.name
       user.password = Devise.friendly_token.first(16)
     end
+  end
+
+  def self.oauth_parse(access_token)
+    id = access_token.extra.raw_info.id
+    provider = access_token.provider
+    url = case provider
+          when 'facebook' then "https://facebook.com/#{id}"
+          when 'vkontakte' then access_token.info.urls.first[1]
+          end
+    [url, provider]
   end
 
   private
