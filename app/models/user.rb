@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  EMPTY_EMAIL_PREFIX = 'change-me-'.freeze
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook vkontakte] # :twitter
@@ -13,35 +14,38 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   validates :name, presence: true, length: { maximum: 35 }
+  validates :email, :name, uniqueness: true
 
   def self.find_for_oauth_provider(access_token)
-    email = access_token.info.email
-    email ||= "change-me-#{access_token.info.first_name}@#{access_token.uid}.#{access_token.provider}.com"
+    url, provider, email = oauth_parse(access_token)
     user = where(email: email).first
     return user if user.present?
 
-    user_from_oauth(access_token, email)
+    name = access_token.info.name
+    user = where(name: name).first
+    return user if user.present?
+
+    user_from_oauth(url, provider, email, name)
   end
 
-  def self.user_from_oauth(access_token, email)
-    url, provider = oauth_parse(access_token)
-
+  def self.user_from_oauth(url, provider, email, name)
     where(url: url, provider: provider).first_or_create! do |user|
-      user.avatar = access_token.info.image
       user.email = email
-      user.name = access_token.info.name
+      user.name = name
       user.password = Devise.friendly_token.first(16)
     end
   end
 
   def self.oauth_parse(access_token)
+    email = access_token.info.email
+    email ||= "#{EMPTY_EMAIL_PREFIX}#{access_token.info.first_name}@#{access_token.uid}.#{access_token.provider}.com"
     id = access_token.extra.raw_info.id
     provider = access_token.provider
     url = case provider
           when 'facebook' then "https://facebook.com/#{id}"
           when 'vkontakte' then access_token.info.urls.first[1]
           end
-    [url, provider]
+    [url, provider, email, name]
   end
 
   private
