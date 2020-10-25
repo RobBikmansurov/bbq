@@ -25,11 +25,12 @@ class User < ApplicationRecord
     user = where(name: name).first
     return user if user.present?
 
-    user_from_oauth(url, provider, email, name)
+    user_from_oauth(url, provider, email, name, access_token.info.image)
   end
 
-  def self.user_from_oauth(url, provider, email, name)
+  def self.user_from_oauth(url, provider, email, name, avatar)
     where(url: url, provider: provider).first_or_create! do |user|
+      user.remote_avatar_url = avatar
       user.email = email
       user.name = name
       user.password = Devise.friendly_token.first(16)
