@@ -15,13 +15,15 @@
         <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
       </div>
       <% if devise_mapping.rememberable? %>
-        <div><%= f.check_box :remember_me %>
+        <div class="form-group"><%= f.check_box :remember_me %>
           <%= f.label :remember_me %>
         </div>
       <% end %>
 
+      <%= render 'devise/shared/policy' %>
+
       <div>
-        <%= f.submit t('.sign_in', default: "Sign in"), class: "btn btn-primary btn-block" %>
+        <%= f.submit t('.sign_in', default: "Sign in"), id:"agreement_submit", class: "btn btn-primary btn-block" %>
       </div>
     <% end %>
   </div>
