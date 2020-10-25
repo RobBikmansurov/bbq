@@ -6,15 +6,15 @@
 ## Getting started
 
 Try the app on [Heroku](https://bbq-robb.herokuapp.com/)
-or [there](https://bbq.bikmansurov.ru/)
-or [here](http://161.35.93.15/)
+or [there](https://bbq.bikmansurova.ru/)
+or [here](http://bbq.bikmansurov.ru/)
 
 ### Install
 
 Development environment requirements :
 * Ruby version 2.7.1
 * Rails 6.0.3
-* gem Devise
+* Devise, Pundit, OmniAuth
 
 ```bash
 $ git clone git@github.com:RobBikmansurov/bbq.git
@@ -43,13 +43,43 @@ sudo apt update && sudo apt install yarn
 yarn install --check-files
 ```
 
-#### Create backup-files
+#### Create selfsigned cerificates for development
+vi config/environments/development.rb
+```
+config.force_ssl = true
+config.action_controller.asset_host = 'https://lvh.me:3000'
+```
+
+Create certificate and key (be sure to fill FQDN):
+`openssl req -x509 -sha256 -nodes -newkey rsa:2048 -days 365 -keyout localhost.key -out localhost.crt`
+
+```
+Country Name (2 letter code) [AU]:RU
+State or Province Name (full name) [Some-State]:Perm Region
+Locality Name (eg, city) []:Perm
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:.
+Organizational Unit Name (eg, section) []:.
+Common Name (e.g. server FQDN or YOUR name) []:lvh.me
+Email Address []:robb@mail.ru
+```
+
+Two new files will appear in the current directory:
+`localhost.key` and `localhost.crt`
+
+Run application:
+```
+bundle exec rails s -b 'ssl://lvh.me:3000?key=./localhost.key&cert=./localhost.crt'
+```
+Now you can access the application with your browser on: `https://lvh:3000`
+
+Enjoy!
+
+#### Create backup-files (only for VDS)
 ```
 touch shared/public/assets/.manifest.json
 touch shared/public/assets/.sprockets-manifest.json
 ```
 
-Now you can access the application with your browser on: http://localhost:3000
 
 
 &copy; 2020 [Robert Bikmansurov](https://bikmansurov.ru/)
