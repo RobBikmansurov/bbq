@@ -70,5 +70,5 @@ set :bundle_jobs, 4 # default: 4, only available for Bundler >= 1.4
 set :bundle_binstubs, -> { shared_path.join('bin') }
 
 after 'deploy:published', 'bundler:clean' # clean gems after successful deploy
-# after "deploy:restart", "resque:restart"
+after "deploy:restart", "resque:restart"
 
