@@ -2,7 +2,7 @@ class User < ApplicationRecord
   EMPTY_EMAIL_PREFIX = 'change-me-'.freeze
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[facebook vkontakte] # :twitter
+         :omniauthable, omniauth_providers: %i[facebook vkontakte]
 
   before_validation :rand_name, on: :create
   after_commit :link_subscriptions, on: :create

@@ -267,9 +267,6 @@ Devise.setup do |config|
   config.omniauth :vkontakte,
                   Rails.application.credentials.dig(Rails.env.to_sym, :omniauth, :vk_id),
                   Rails.application.credentials.dig(Rails.env.to_sym, :omniauth, :vk_secret)
-  config.omniauth :twitter,
-                  Rails.application.credentials.dig(Rails.env.to_sym, :omniauth, :twitter_id),
-                  Rails.application.credentials.dig(Rails.env.to_sym, :omniauth, :twitter_secret)
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
