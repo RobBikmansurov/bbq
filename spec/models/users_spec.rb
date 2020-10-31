@@ -16,7 +16,6 @@ RSpec.describe User, type: :model do
     # Ситуация: пользователь не найден
     context 'when user is not found' do
       it 'returns newly created user' do
-        puts access_token
         user = User.find_for_oauth_provider(access_token)
 
         expect(user).to be_persisted
