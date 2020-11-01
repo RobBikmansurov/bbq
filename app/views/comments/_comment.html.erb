@@ -1,13 +1,11 @@
-<div class="buffer-top">
-  <p><%= comment.body %></p>
-  <p>
-    <span>
+<div class="buffer-top" style="padding-left: 10px; background-color: whitesmoke;" >
+  <p style="padding-top: 0; margin-bottom: 0"><%= comment.body %></p>
+  <p style="text-align: right; padding-top: 0">
       <% if comment.user.present? %>
         <%= render partial: 'users/user', object: comment.user %>
       <% else %>
         <em><strong><%= comment.user_name %></strong></em>
       <% end %>
-    </span>
     <em><%= l comment.created_at, format: :short %></em>
     <% if current_user_can_edit?(comment) %>
       <%= link_to(event_comment_path(comment.event, comment),

@@ -6,16 +6,16 @@
 
 /* Buffers */
 .buffer-top {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .buffer-bottom {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .buffer-both {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /* Avatars for users & events */
