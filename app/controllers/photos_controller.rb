@@ -3,11 +3,11 @@ class PhotosController < ApplicationController
   before_action :load_photo, only: [:destroy]
 
   def create
-    @new_photo = @event.photos.build(photo_params)
-    @new_photo.user = current_user
+    @photo = @event.photos.build(photo_params)
+    @photo.user = current_user
 
-    if @new_photo.save # Если фотографию удалось сохранить, редирект на событие с сообщением
-      EventPhotoNotifyJob.perform_later(@event, @new_photo)
+    if @photo.save # Если фотографию удалось сохранить, редирект на событие с сообщением
+      EventNotifyJob.perform_later(@photo)
       redirect_to @event, notice: I18n.t('controllers.photos.created')
     else
       render 'events/show', alert: I18n.t('controllers.photos.error')

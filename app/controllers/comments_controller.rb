@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @comment = @event.comments.build(comment_params)
     @comment.user = current_user
     if @comment.save
-      EventCommentNotifyJob.perform_later(@event, @comment)
+      EventNotifyJob.perform_later(@comment)
       redirect_to @event, notice: I18n.t('controllers.comments.created')
     else
       render 'events/show', alert: I18n.t('controllers.comments.error')
