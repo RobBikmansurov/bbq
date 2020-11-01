@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe EventCommentNotifyJob, type: :job do
+RSpec.describe EventNotifyJob, type: :job do
   subject(:job) { described_class.perform_later(key) }
 
   let(:key) { 1 }
