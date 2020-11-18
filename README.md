@@ -1,13 +1,12 @@
 
-# BBQ - training project
+# BBQ - Let's go to the barbecue! training project
 
 [![Build Status](https://travis-ci.com/RobBikmansurov/bbq.svg?branch=master)](https://travis-ci.com/RobBikmansurov/bbq)
 
 ## Getting started
 
-Try the app on [Heroku](https://bbq-robb.herokuapp.com/)
-or [there](https://bbq.bikmansurova.ru/)
-or [here](http://bbq.bikmansurov.ru/)
+Try the app on [Digital Ocean](https://bbq.bikmansurova.ru/)
+or [Heroku](https://bbq-robb.herokuapp.com/)
 
 ### Install
 
