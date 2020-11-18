@@ -3,10 +3,17 @@
 
 [![Build Status](https://travis-ci.com/RobBikmansurov/bbq.svg?branch=master)](https://travis-ci.com/RobBikmansurov/bbq)
 
-## Getting started
+## About
+Let's go to the barbecue! B-B-Q: 
+
+Rails 6, Bootstrap, Devise, OmniAuth, aws-s3, Capistrano, ActiveJob
+
+![Screenshot BBQ aaplication](https://bikmansurov.ru/bbq-app.jpg)
 
 Try the app on [Digital Ocean](https://bbq.bikmansurova.ru/)
 or [Heroku](https://bbq-robb.herokuapp.com/)
+
+## Getting started
 
 ### Install
 
